@@ -16,7 +16,7 @@
 
 
 import '../css/styles.css';
-// import pokemonCardTpl from '../templates/pokemon-card.hbs';
+import pokemonCardTpl from '../templates/pokemon-card.hbs';
 // import API from './api-service';
 // import getRefs from './get-refs';
 
@@ -27,20 +27,36 @@ import '../css/styles.css';
 //     console.log(data);
 // });
 
-fetch('https://pokeapi.co/api/v2/pokemon/2/')
+//*============================================================
+
+const refs = {
+    cardContainer: document.querySelector('.js-card-container'),
+}
+fetch('https://pokeapi.co/api/v2/pokemon/4/')
     .then(response => {
     // console.log(response.json());
-
     return response.json();
     })
     .then(pokemon => {
-    console.log(pokemon);
+        console.log(pokemon);
+        const markup = pokemonCardTpl(pokemon);
+        console.log(markup);
+        refs.cardContainer.innerHTML = markup;
     })
     .catch(error => {
         console.log(error);
     });
 
-fetch('https://pokeapi.co/api/v2/pokemon');
+    //*======== А тепер причешемо цей код ================
+//*--малювання інтерфейсу має бути в окр. ф-ції:
+
+function renderPokemonCard(pokemon) {
+  const markup = pokemonCardTpl(pokemon);
+  refs.cardContainer.innerHTML = markup;
+}
+
+
+// fetch('https://pokeapi.co/api/v2/pokemon/1');
 
 
 // const refs = getRefs();
@@ -59,10 +75,7 @@ fetch('https://pokeapi.co/api/v2/pokemon');
 //     .finally(() => form.reset());
 // }
 
-// function renderPokemonCard(pokemon) {
-//   const markup = pokemonCardTpl(pokemon);
-//   refs.cardContainer.innerHTML = markup;
-// }
+
 
 // function onFetchError(error) {
 //   alert('Упс, что-то пошло не так и мы не нашли вашего покемона!');
