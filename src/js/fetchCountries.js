@@ -4,15 +4,15 @@ export default class FetchCountriesServise {
     constructor() {
         this.searchQuery = '';
     }
-    fetchCountries() {
+    fetchCountries(name) {
         console.log(this);
     
         return fetch(`${BASE_URL}/name/${this.searchQuery}`)
             .then(response => {
                 return response.json();
             })
-            .then(({ country }) => {
-                console.log(country);
+            .then(({ countries }) => {
+                
                 return countries;
             })
             .catch(error => {
@@ -23,7 +23,7 @@ export default class FetchCountriesServise {
             return this.searchQuery;
         }
 
-        set query(newQuery) {
+    set query(newQuery) {
             this.searchQuery = newQuery;
         }
 }

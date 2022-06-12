@@ -11,16 +11,16 @@ const refs = {
 
 const fetchCountriesServise = new FetchCountriesServise;
 console.log(fetchCountriesServise);
+console.log(refs.input);
 
 refs.input.addEventListener('input', onSearch);
 
 function onSearch(e) {
     e.preventDefault();
+    console.log(e.target.value);
 
-    fetchCountriesServise.query = e.currentTarget.elements.query.value;
-    if (fetchCountriesServise.query === '') {
-        return alert('Too many matches found. Please enter a more specific name.');
-    }
+    fetchCountriesServise.query = e.target.value;
+    
     fetchCountriesServise.fetchCountries();
 }
 function appendCountriesMarkup(countries) {
