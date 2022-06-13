@@ -1,4 +1,6 @@
 const DEBOUNCE_DELAY = 300;
+// var debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 
 
 import FetchCountriesServise from '../js/fetchCountries';
@@ -21,9 +23,15 @@ function onSearch(e) {
 
     fetchCountriesServise.query = e.target.value;
     
-    fetchCountriesServise.fetchCountries();
+    fetchCountriesServise.fetchCountries()
+        .then(countries => {
+            appendCountriesMarkup(countries);
+        });
+    
 }
 function appendCountriesMarkup(countries) {
+    
+    refs.countryList.insertAdjacentHTML('beforeend', countriesCardTpl(countries));
      
  }
 
