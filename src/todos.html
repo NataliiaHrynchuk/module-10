@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Group 45-46</title>
+
+    <style>
+        .form {
+            border: 1px solid green;
+            padding: 10px;
+        }
+
+        .bg1 {
+            background-color: beige;
+        }
+
+        .bg2 {
+            background-color: blanchedalmond;
+        }
+
+        ul {
+            background-color: beige;
+        }
+
+        li {
+            border: 1px solid green;
+        }
+
+        #loader {
+            display: none;
+        }
+
+        #loader.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <p><a href="index.html">На головну</a></p>
+    <h3>Module 10.1 - Todo list (HTTP requests)</h3>
+
+    <form class="form bg1">
+        <label>
+            <span>Enter text</span>
+            <input type="text" name="text" />
+        </label>
+        <button type="submit">+ Add</button>
+    </form>
+
+    <p id="loader">Loading...</p>
+    <ul></ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+    integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script src="../src/js/todos.js" type="module"></script>
+</body>
+
+</html>
